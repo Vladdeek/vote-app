@@ -2,6 +2,21 @@ import { Flame, Rocket, ScanFace } from 'lucide-react'
 import { AltBlueButton, BlueButton, RedButton } from '../components/Buttons'
 
 const MainPage = () => {
+	const heights = [
+		'30%',
+		'45%',
+		'60%',
+		'25%',
+		'75%',
+		'90%',
+		'35%',
+		'50%',
+		'65%',
+		'80%',
+		'95%',
+		'44%',
+	]
+	const colors = ['#BD3636', '#FFE3E3', '#E87C7C', '#F2A4A4']
 	return (
 		<>
 			<div className='mx-60 my-[99px] text-[#212121] tracking-wide'>
@@ -174,7 +189,27 @@ const MainPage = () => {
 				</div>
 				<p className='mak text-[40px] mb-5 mt-[99px]'>Общая статистика</p>
 				<div className='grid grid-cols-3 gap-2'>
-					<div className='bg-white rounded-[20px] h-70'></div>
+					<div className='bg-white rounded-[20px] flex flex-col justify-between h-70 p-5'>
+						<p className='font-semibold text-2xl'>Регистрация и голосование</p>
+						<p className='font-light text-base text-[#CCCCCC]'>
+							Соотношение регистраций и голосов
+						</p>
+						<div className='grid grid-cols-12 gap-1 h-40 items-end'>
+							{heights.map((height, index) => (
+								<div
+									key={index}
+									className='rounded-sm transition-all duration-300'
+									style={{
+										height: height,
+										backgroundColor: colors[index % colors.length], // Циклический выбор цвета
+									}}
+								/>
+							))}
+						</div>
+						<p className='font-light text-base text-[#CCCCCC]'>
+							В период с 10.06.2025 по 10.07.2025
+						</p>
+					</div>
 					<div className='bg-white rounded-[20px] flex flex-col justify-between h-70 p-5'>
 						<p className='font-semibold text-2xl'>Количество голосующих</p>
 						<p className='font-light text-base text-[#CCCCCC]'>

@@ -11,6 +11,8 @@ import './index.css'
 import Authorization from './pages/authorization'
 import DashboardLayout from './pages/layout/DashboardLayout'
 import MainPage from './pages/MainPage'
+import Profile from './pages/Profile'
+import Voting from './pages/Voting'
 
 function MainApp() {
 	const navigate = useNavigate()
@@ -26,6 +28,8 @@ function MainApp() {
 				<Route path='/' element={<DashboardLayout />}>
 					<Route path='/auth' element={<Authorization />} />
 					<Route path='/main' element={<MainPage />} />
+					<Route path='/profile' element={<Profile />} />
+					<Route path='/voting' element={<Voting />} />
 				</Route>
 			</Routes>
 		</Suspense>

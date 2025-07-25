@@ -1,3 +1,4 @@
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 const ToggleLangBtn = () => {
@@ -38,6 +39,28 @@ const Button = ({ title, onClick }) => {
 	)
 }
 
+const TransButton = ({ children, onClick }) => {
+	return (
+		<button
+			onClick={onClick}
+			className='border-1 w-full py-3 px-4 flex gap-3 items-center whitespace-nowrap border-[#212121] rounded-lg text-lg font-normal text-[#212121]'
+		>
+			{children}
+		</button>
+	)
+}
+
+const WhiteButton = ({ children, onClick }) => {
+	return (
+		<button
+			onClick={onClick}
+			className='border-1 w-full flex items-center gap-5 px-5 py-3 whitespace-nowrap border-[#f4f4f4] rounded-lg text-lg font-medium text-[#212121]'
+		>
+			{children}
+		</button>
+	)
+}
+
 const BlueButton = ({ onClick, children }) => {
 	return (
 		<button
@@ -59,6 +82,28 @@ const AltBlueButton = ({ onClick, children }) => {
 	)
 }
 
+const GreenButton = ({ onClick, children }) => {
+	return (
+		<button
+			onClick={onClick}
+			className='border-1 w-full py-3 px-5 bg-[#5BC25B] border-white rounded-lg text-lg font-normal text-white flex gap-5 justify-center items-center'
+		>
+			{children}
+		</button>
+	)
+}
+
+const GrayButton = ({ onClick, children }) => {
+	return (
+		<button
+			onClick={onClick}
+			className='w-full py-3 px-5 bg-[#F4F4F4] whitespace-nowrap rounded-lg text-lg font-normal text-[#212121] flex gap-5 justify-center items-center'
+		>
+			{children}
+		</button>
+	)
+}
+
 const RedButton = ({ title, onClick }) => {
 	return (
 		<button
@@ -70,4 +115,37 @@ const RedButton = ({ title, onClick }) => {
 	)
 }
 
-export { ToggleLangBtn, Button, BlueButton, RedButton, AltBlueButton }
+const PrevNextButton = ({ children, onClick }) => {
+	return (
+		<div className='inline-flex justify-between items-center border-1 border-[#f4f4f4] rounded-lg py-3 px-3'>
+			<p className='text-xl font-normal whitespace-nowrap'>
+				<span className='font-semibold'>1-10</span> из 100
+			</p>
+			<div className='flex'>
+				<ChevronLeft
+					onClick={console.log('кнопка нажата')}
+					className='text-[var(--secondary-text)] bg-[var(--bg-sidebar)] hover:bg-[var(--gray)] rounded-lg transition-all '
+					size={22}
+				/>
+				<ChevronRight
+					onClick={console.log('кнопка нажата')}
+					className='text-[var(--secondary-text)] bg-[var(--bg-sidebar)] hover:bg-[var(--gray)] rounded-lg transition-all '
+					size={22}
+				/>
+			</div>
+		</div>
+	)
+}
+
+export {
+	ToggleLangBtn,
+	Button,
+	BlueButton,
+	RedButton,
+	GreenButton,
+	GrayButton,
+	AltBlueButton,
+	TransButton,
+	WhiteButton,
+	PrevNextButton,
+}
