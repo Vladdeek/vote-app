@@ -13,7 +13,8 @@ import DashboardLayout from './pages/layout/DashboardLayout'
 import MainPage from './pages/MainPage'
 import Profile from './pages/Profile'
 import Voting from './pages/Voting'
-import ConstrucorVoting from './pages/ConstructorVoting'
+import Constructor from './pages/ConstructorVoting'
+import DetailVoting from './pages/DetailVoting'
 
 function MainApp() {
 	const navigate = useNavigate()
@@ -31,7 +32,8 @@ function MainApp() {
 					<Route path='/main' element={<MainPage />} />
 					<Route path='/profile' element={<Profile />} />
 					<Route path='/voting' element={<Voting />} />
-					<Route path='/constructor' element={<ConstrucorVoting />} />
+					<Route path='/constructor' element={<Constructor />} />
+					<Route path='/details' element={<DetailVoting />} />
 				</Route>
 			</Routes>
 		</Suspense>
