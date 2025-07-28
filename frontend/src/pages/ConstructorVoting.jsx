@@ -67,7 +67,7 @@ const Constructor = () => {
 				</div>
 				<div className='col-span-3'>
 					<div className='bg-white shadow-sm rounded-[20px] p-6'>
-						{isActive === 1 ? (
+						{isActive === 0 ? (
 							<>
 								<VotingConstructor />
 							</>

@@ -1,5 +1,6 @@
 import { Flame, Rocket, ScanFace } from 'lucide-react'
 import { AltBlueButton, BlueButton, RedButton } from '../components/Buttons'
+import { GreenTag, YellowTag } from '../components/Tags'
 
 const MainPage = () => {
 	const heights = [
@@ -88,10 +89,10 @@ const MainPage = () => {
 							<p className='font-light text-base text-[#CCCCCC]'>
 								Группа пользователей
 							</p>
-							<div className='bg-[#FFFBD0] text-[#564E13] font-medium rounded-lg py-2 px-3 inline-flex items-center justify-center w-fit gap-2'>
+							<YellowTag wfull={false}>
 								<ScanFace />
 								<p>Голосование на этапе регистрации</p>
-							</div>
+							</YellowTag>
 							<div className='grid grid-cols-2 gap-2'>
 								<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
 									<p className='text-base font-light text-[#212121]'>
@@ -126,10 +127,10 @@ const MainPage = () => {
 							<p className='font-light text-base text-[#CCCCCC]'>
 								Группа пользователей
 							</p>
-							<div className='bg-[#E6FFDD] text-[#135617] font-medium rounded-lg py-2 px-3 inline-flex items-center justify-center w-fit gap-2'>
+							<GreenTag>
 								<Flame />
 								<p>Голосование активно</p>
-							</div>
+							</GreenTag>
 							<div className='grid grid-cols-2 gap-2'>
 								<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
 									<p className='text-base font-light text-[#212121]'>
@@ -157,10 +158,10 @@ const MainPage = () => {
 							<p className='font-light text-base text-[#CCCCCC]'>
 								Группа пользователей
 							</p>
-							<div className='bg-[#FFFBD0] text-[#564E13] font-medium rounded-lg py-2 px-3 inline-flex items-center justify-center w-fit gap-2'>
+							<YellowTag wfull={false}>
 								<ScanFace />
 								<p>Голосование на этапе регистрации</p>
-							</div>
+							</YellowTag>
 							<div className='grid grid-cols-2 gap-2'>
 								<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
 									<p className='text-base font-light text-[#212121]'>

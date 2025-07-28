@@ -7,24 +7,7 @@ import {
 	ScanFace,
 	Trash2,
 } from 'lucide-react'
-
-const VoteTag1 = () => {
-	return (
-		<div className='bg-[#E6FFDD] text-[#135617] font-medium rounded-lg py-2 px-3 inline-flex items-center justify-center w-fit gap-2'>
-			<Flame />
-			<p>Голосование активно</p>
-		</div>
-	)
-}
-
-const VoteTag2 = () => {
-	return (
-		<div className='bg-[#FFFBD0] text-[#564E13] font-medium rounded-lg py-2 px-3 inline-flex items-center justify-center w-fit gap-2'>
-			<ScanFace />
-			<p>Голосование на этапе регистрации</p>
-		</div>
-	)
-}
+import { GreenTag, YellowTag } from './Tags'
 
 const DateRow = ({ date, time, title }) => {
 	return (
@@ -70,8 +53,14 @@ const VoteCard = ({
 				</div>
 				<div className='grid grid-cols-3'>
 					<div className='col-span-1 flex flex-col gap-2'>
-						<VoteTag1 />
-						<VoteTag2 />
+						<GreenTag>
+							<Flame />
+							<p>Голосование активно</p>
+						</GreenTag>
+						<YellowTag>
+							<ScanFace />
+							<p>Голосование на этапе регистрации</p>
+						</YellowTag>
 					</div>
 					<div className='col-span-1 grid grid-cols-2 grid-rows-2 gap-6'>
 						<div className='col-span-1 row-span-1'>

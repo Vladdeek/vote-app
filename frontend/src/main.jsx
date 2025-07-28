@@ -14,7 +14,7 @@ import MainPage from './pages/MainPage'
 import Profile from './pages/Profile'
 import Voting from './pages/Voting'
 import Constructor from './pages/ConstructorVoting'
-import DetailVoting from './pages/DetailVoting'
+import DetailVoting from './pages/DetailVotingPage/DetailVoting'
 
 function MainApp() {
 	const navigate = useNavigate()
