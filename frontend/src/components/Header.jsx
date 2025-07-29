@@ -1,5 +1,6 @@
 import { CircleUserRound, ScanSearch, Settings2 } from 'lucide-react'
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 const HeaderDropdown = ({ options = [], title }) => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -21,13 +22,13 @@ const HeaderDropdown = ({ options = [], title }) => {
 				<p className='p-3 cursor-pointer'>{title}</p>
 				<div className={!isOpen && 'hidden'}>
 					{options.map((option, index) => (
-						<p
+						<NavLink
 							key={index}
-							className='p-3 w-10 cursor-pointer text-xl font-normal select-none transition-all'
-							onClick={() => handleOptionClick(option)}
+							to={option.to}
+							className='p-3 w-10 cursor-pointer text-xl font-normal select-none transition-all block'
 						>
-							{option}
-						</p>
+							{option.title}
+						</NavLink>
 					))}
 				</div>
 			</div>
@@ -92,8 +93,17 @@ const AltHeaderDropdown = ({ options = [], title }) => {
 }
 
 const Header = ({ isAuthorized, onClick }) => {
-	const Users = ['Наблюдатель', 'Член счётной комиссии', 'Секретарь']
-	const Voting = ['Список голосований', 'Конструктор голосований']
+	const Users = [
+		{ title: 'Наблюдатель', to: '/' },
+
+		{ title: 'Член счётной комиссии', to: '/' },
+
+		{ title: 'Секретарь', to: '/' },
+	]
+	const Voting = [
+		{ title: 'Список голосований', to: '/voting' },
+		{ title: 'Конструктор голосований', to: '/constructor' },
+	]
 	const Add = ['Голосование', 'Шаблон голосований', 'Группу пользователей']
 	return (
 		<>
@@ -108,9 +118,12 @@ const Header = ({ isAuthorized, onClick }) => {
 							/>
 						</div>
 						<div className='mt-1 flex gap-5'>
-							<p className='px-5 h-13 flex items-start py-3 cursor-pointer hover:bg-[#505050] rounded-2xl'>
+							<NavLink
+								to={'/main'}
+								className='px-5 h-13 flex items-start py-3 cursor-pointer hover:bg-[#505050] rounded-2xl'
+							>
 								Главная
-							</p>
+							</NavLink>
 							{isAuthorized && (
 								<div className='h-full flex items-start z-20'>
 									<HeaderDropdown title={'Пользователи'} options={Users} />

@@ -266,7 +266,7 @@ const MainPage = () => {
 								starttime={'10:00'}
 								enddate={'06.07.2025'}
 								endtime={'10:00'}
-								progress={25}
+								progress={95}
 							/>
 						</div>
 					</div>
