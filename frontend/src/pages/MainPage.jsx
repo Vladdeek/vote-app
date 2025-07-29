@@ -1,6 +1,10 @@
 import { Flame, Rocket, ScanFace } from 'lucide-react'
 import { AltBlueButton, BlueButton, RedButton } from '../components/Buttons'
 import { GreenTag, YellowTag } from '../components/Tags'
+import { useState } from 'react'
+import Calendar from '../components/Calendar'
+import { ActualVoteCard, MinInfoVoteCard } from '../components/VoteCard'
+import { LinkText } from '../components/Components'
 
 const MainPage = () => {
 	const heights = [
@@ -18,10 +22,42 @@ const MainPage = () => {
 		'44%',
 	]
 	const colors = ['#BD3636', '#FFE3E3', '#E87C7C', '#F2A4A4']
+	const [role, setRole] = useState('голосующий')
 	return (
 		<>
-			<div className='mx-60 my-[99px] text-[#212121] tracking-wide'>
-				<p className='mak text-[40px] mb-5 '>Главная</p>
+			<button
+				className='hover:bg-[#505050] text-white bg-[#212121] transition-all rounded-xl px-5 py-3 cursor-pointer absolute z-1000'
+				onClick={() => {
+					role === 'голосующий' ? setRole('админ') : setRole('голосующий')
+				}}
+			>
+				сменить роль
+			</button>
+			{role !== 'админ' && (
+				<>
+					<div className='relative px-40  -z-1'>
+						<p className='mak text-[40px] mb-5 text-white absolute mt-16 ml-20'>
+							Главная
+						</p>
+						<img
+							className='rounded-[20px] object-cover'
+							src='assets\img\bfbfe1dc293cbe00c215ff63f52772875e1e8d9c.png'
+							alt=''
+						/>
+						<p className='text-[48px] text-white absolute bottom-[40px] ml-20 uppercase font-bold w-1/4 tracking-wide'>
+							криптоголосвание на блокчейне
+						</p>
+					</div>
+				</>
+			)}
+
+			<div
+				className={`mx-60 ${
+					role === 'админ' ? 'my-[99px]' : 'mb-[99px] mt-3'
+				}  text-[#212121] tracking-wide`}
+			>
+				{role === 'админ' && <p className='mak text-[40px] mb-5 '>Главная</p>}
+
 				<div className='grid grid-cols-6 gap-2 '>
 					<div className='bg-white col-span-1 h-50 rounded-[20px] flex flex-col justify-center p-5'>
 						<p className='text-[38px] font-semibold'>3.000</p>
@@ -54,143 +90,198 @@ const MainPage = () => {
 						</div>
 					</div>
 				</div>
-				<p className='mak text-[40px] mb-5 mt-[99px]'>
-					Управление голосованием
-				</p>
-				<div className='flex gap-2'>
-					<div className='flex flex-col gap-2'>
-						<div className='bg-white rounded-[20px] p-5 w-[634px] h-[400px] grid grid-cols-5 gap-2'>
-							<div className='col-span-3 flex flex-col justify-between'>
-								<p className='font-semibold text-2xl'>
-									Ваш голос — неприкосновенен.
-								</p>
-								<p className='text-lg font-light'>
-									Участвуйте в голосованиях с криптографической защитой, где
-									каждый выбор остаётся в вечном блокчейне. Влияйте на решения
-									по-настоящему — без посредников, без фальсификаций.
-									Присоединяйтесь к революции прозрачных решений!
-								</p>
-								<BlueButton>
-									<Rocket />
-									<p>Создать голосование</p>
-								</BlueButton>
+				{role === 'админ' && (
+					<>
+						<p className='mak text-[40px] mb-5 mt-[99px]'>
+							Управление голосованием
+						</p>
+						<div className='flex gap-2'>
+							<div className='flex flex-col gap-2'>
+								<div className='bg-white rounded-[20px] p-5 w-[634px] h-[400px] grid grid-cols-5 gap-2'>
+									<div className='col-span-3 flex flex-col justify-between'>
+										<p className='font-semibold text-2xl'>
+											Ваш голос — неприкосновенен.
+										</p>
+										<p className='text-lg font-light'>
+											Участвуйте в голосованиях с криптографической защитой, где
+											каждый выбор остаётся в вечном блокчейне. Влияйте на
+											решения по-настоящему — без посредников, без
+											фальсификаций. Присоединяйтесь к революции прозрачных
+											решений!
+										</p>
+										<BlueButton>
+											<Rocket />
+											<p>Создать голосование</p>
+										</BlueButton>
+									</div>
+									<img
+										className='col-span-2 h-full rounded-[12px]'
+										src='assets/img/ca5f98a87def00ad482c1f2027c8e36dd917f611.png'
+										alt=''
+									/>
+								</div>
+								<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 w-[634px] h-[481px]'>
+									<p className='font-semibold text-2xl'>
+										Lorem Ipsum is simply dummy text of the printing and
+										typesetting industry. Lorem Ipsum has been the
+									</p>
+									<p className='font-light text-base text-[#CCCCCC]'>
+										Группа пользователей
+									</p>
+									<YellowTag wfull={false}>
+										<ScanFace />
+										<p>Голосование на этапе регистрации</p>
+									</YellowTag>
+									<div className='grid grid-cols-2 gap-2'>
+										<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
+											<p className='text-base font-light text-[#212121]'>
+												Проголосовало человек
+											</p>
+											<div className='flex items-center gap-2'>
+												<p className='text-[32px] font-semibold'>141</p>
+												<p className='bg-[#E6FFDD] text-[#135617] rounded-lg p-1'>
+													+60%
+												</p>
+											</div>
+											<p className='text-base font-light text-[#ccc]'>
+												За последние 24 часа
+											</p>
+										</div>
+										<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'></div>
+										<BlueButton>
+											<p>Завершить регистрацию</p>
+										</BlueButton>
+										<AltBlueButton>
+											<p>Начать голосование</p>
+										</AltBlueButton>
+									</div>
+								</div>
 							</div>
-							<img
-								className='col-span-2 h-full rounded-[12px]'
-								src='assets/img/ca5f98a87def00ad482c1f2027c8e36dd917f611.png'
-								alt=''
+							<div className='flex flex-col gap-2'>
+								<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 w-[796px] h-[431px]'>
+									<p className='font-semibold text-2xl'>
+										Lorem Ipsum is simply dummy text of the printing and
+										typesetting industry. Lorem Ipsum has been the
+									</p>
+									<p className='font-light text-base text-[#CCCCCC]'>
+										Группа пользователей
+									</p>
+									<GreenTag>
+										<Flame />
+										<p>Голосование активно</p>
+									</GreenTag>
+									<div className='grid grid-cols-2 gap-2'>
+										<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
+											<p className='text-base font-light text-[#212121]'>
+												Проголосовало человек
+											</p>
+											<div className='flex items-center gap-2'>
+												<p className='text-[32px] font-semibold'>48</p>
+												<p className='bg-[#E6FFDD] text-[#135617] rounded-lg p-1'>
+													+10%
+												</p>
+											</div>
+											<p className='text-base font-light text-[#ccc]'>
+												За последние 24 часа
+											</p>
+										</div>
+										<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'></div>
+										<RedButton title={'Завершить голосование'} />
+									</div>
+								</div>
+								<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 w-[796px] h-[450px]'>
+									<p className='font-semibold text-2xl'>
+										Lorem Ipsum is simply dummy text of the printing and
+										typesetting industry. Lorem Ipsum has been the
+									</p>
+									<p className='font-light text-base text-[#CCCCCC]'>
+										Группа пользователей
+									</p>
+									<YellowTag wfull={false}>
+										<ScanFace />
+										<p>Голосование на этапе регистрации</p>
+									</YellowTag>
+									<div className='grid grid-cols-2 gap-2'>
+										<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
+											<p className='text-base font-light text-[#212121]'>
+												Проголосовало человек
+											</p>
+											<div className='flex items-center gap-2'>
+												<p className='text-[32px] font-semibold'>99</p>
+												<p className='bg-[#E6FFDD] text-[#135617] rounded-lg p-1'>
+													+16%
+												</p>
+											</div>
+											<p className='text-base font-light text-[#ccc]'>
+												За последние 24 часа
+											</p>
+										</div>
+										<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'></div>
+										<BlueButton>
+											<p>Завершить регистрацию</p>
+										</BlueButton>
+										<AltBlueButton>
+											<p>Начать голосование</p>
+										</AltBlueButton>
+									</div>
+								</div>
+							</div>
+						</div>
+					</>
+				)}
+				{role === 'админ' && (
+					<p className='mak text-[40px] mb-5 mt-[99px]'>Общая статистика</p>
+				)}
+				{role !== 'админ' && (
+					<div className='grid grid-cols-9 gap-2 mt-2 '>
+						<div className='bg-white rounded-[20px] col-span-5 h-[782px] flex flex-col justify-between p-6'>
+							<p className='font-semibold text-2xl'>Мои голосования</p>
+							<div className='flex flex-col gap-4'>
+								<MinInfoVoteCard
+									title={'выфв ыфвыф выфв ыф вфывфыв фыавы пвы'}
+									description={'dsadsad dsa dsa dsd'}
+									timezone={'(UTC+3) Россия - Москва (MSK)'}
+									date={'06.07.2025'}
+									time={'10:00'}
+								/>
+								<MinInfoVoteCard
+									title={'выфв ыфвыф выфв ыф вфывфыв фыавы пвы'}
+									description={'dsadsad dsa dsa dsd'}
+									timezone={'(UTC+3) Россия - Москва (MSK)'}
+									date={'06.07.2025'}
+									time={'10:00'}
+								/>
+							</div>
+							<LinkText
+								title={'Показать больше'}
+								size={'text-xl'}
+								width={'font-semibold'}
 							/>
 						</div>
-						<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 w-[634px] h-[481px]'>
-							<p className='font-semibold text-2xl'>
-								Lorem Ipsum is simply dummy text of the printing and typesetting
-								industry. Lorem Ipsum has been the
-							</p>
-							<p className='font-light text-base text-[#CCCCCC]'>
-								Группа пользователей
-							</p>
-							<YellowTag wfull={false}>
-								<ScanFace />
-								<p>Голосование на этапе регистрации</p>
-							</YellowTag>
-							<div className='grid grid-cols-2 gap-2'>
-								<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
-									<p className='text-base font-light text-[#212121]'>
-										Проголосовало человек
-									</p>
-									<div className='flex items-center gap-2'>
-										<p className='text-[32px] font-semibold'>141</p>
-										<p className='bg-[#E6FFDD] text-[#135617] rounded-lg p-1'>
-											+60%
-										</p>
-									</div>
-									<p className='text-base font-light text-[#ccc]'>
-										За последние 24 часа
-									</p>
-								</div>
-								<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'></div>
-								<BlueButton>
-									<p>Завершить регистрацию</p>
-								</BlueButton>
-								<AltBlueButton>
-									<p>Начать голосование</p>
-								</AltBlueButton>
-							</div>
+						<div className='bg-white rounded-[20px] col-span-4 h-[782px] p-6'>
+							<p className='font-semibold text-2xl'>Мои голосования</p>
+							<ActualVoteCard
+								title={'Очень длинное название актуального голосования'}
+								startdate={'06.07.2025'}
+								starttime={'10:00'}
+								enddate={'06.07.2025'}
+								endtime={'10:00'}
+								progress={25}
+							/>
 						</div>
 					</div>
-					<div className='flex flex-col gap-2'>
-						<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 w-[796px] h-[431px]'>
-							<p className='font-semibold text-2xl'>
-								Lorem Ipsum is simply dummy text of the printing and typesetting
-								industry. Lorem Ipsum has been the
-							</p>
-							<p className='font-light text-base text-[#CCCCCC]'>
-								Группа пользователей
-							</p>
-							<GreenTag>
-								<Flame />
-								<p>Голосование активно</p>
-							</GreenTag>
-							<div className='grid grid-cols-2 gap-2'>
-								<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
-									<p className='text-base font-light text-[#212121]'>
-										Проголосовало человек
-									</p>
-									<div className='flex items-center gap-2'>
-										<p className='text-[32px] font-semibold'>48</p>
-										<p className='bg-[#E6FFDD] text-[#135617] rounded-lg p-1'>
-											+10%
-										</p>
-									</div>
-									<p className='text-base font-light text-[#ccc]'>
-										За последние 24 часа
-									</p>
-								</div>
-								<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'></div>
-								<RedButton title={'Завершить голосование'} />
-							</div>
-						</div>
-						<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 w-[796px] h-[450px]'>
-							<p className='font-semibold text-2xl'>
-								Lorem Ipsum is simply dummy text of the printing and typesetting
-								industry. Lorem Ipsum has been the
-							</p>
-							<p className='font-light text-base text-[#CCCCCC]'>
-								Группа пользователей
-							</p>
-							<YellowTag wfull={false}>
-								<ScanFace />
-								<p>Голосование на этапе регистрации</p>
-							</YellowTag>
-							<div className='grid grid-cols-2 gap-2'>
-								<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
-									<p className='text-base font-light text-[#212121]'>
-										Проголосовало человек
-									</p>
-									<div className='flex items-center gap-2'>
-										<p className='text-[32px] font-semibold'>99</p>
-										<p className='bg-[#E6FFDD] text-[#135617] rounded-lg p-1'>
-											+16%
-										</p>
-									</div>
-									<p className='text-base font-light text-[#ccc]'>
-										За последние 24 часа
-									</p>
-								</div>
-								<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'></div>
-								<BlueButton>
-									<p>Завершить регистрацию</p>
-								</BlueButton>
-								<AltBlueButton>
-									<p>Начать голосование</p>
-								</AltBlueButton>
-							</div>
-						</div>
-					</div>
-				</div>
-				<p className='mak text-[40px] mb-5 mt-[99px]'>Общая статистика</p>
-				<div className='grid grid-cols-3 gap-2'>
-					<div className='bg-white rounded-[20px] flex flex-col justify-between h-70 p-5'>
+				)}
+
+				<div
+					className={`grid ${
+						role === 'админ' ? 'grid-cols-3' : 'grid-cols-6 grid-rows-2 mt-2'
+					}  gap-2`}
+				>
+					<div
+						className={`bg-white rounded-[20px] flex flex-col ${
+							role !== 'админ' && 'col-span-2 row-span-1'
+						} justify-between h-70 p-5`}
+					>
 						<p className='font-semibold text-2xl'>Регистрация и голосование</p>
 						<p className='font-light text-base text-[#CCCCCC]'>
 							Соотношение регистраций и голосов
@@ -202,7 +293,7 @@ const MainPage = () => {
 									className='rounded-sm transition-all duration-300'
 									style={{
 										height: height,
-										backgroundColor: colors[index % colors.length], // Циклический выбор цвета
+										backgroundColor: colors[index % colors.length],
 									}}
 								/>
 							))}
@@ -211,7 +302,17 @@ const MainPage = () => {
 							В период с 10.06.2025 по 10.07.2025
 						</p>
 					</div>
-					<div className='bg-white rounded-[20px] flex flex-col justify-between h-70 p-5'>
+					{role !== 'админ' && (
+						<div className='bg-white rounded-[20px] col-span-4 row-span-2 p-5'>
+							<p className='font-semibold text-2xl'>Календарь голосований</p>
+							<Calendar />
+						</div>
+					)}
+					<div
+						className={`bg-white rounded-[20px] flex flex-col ${
+							role !== 'админ' && 'col-span-2 row-span-1'
+						} justify-between h-70 p-5`}
+					>
 						<p className='font-semibold text-2xl'>Количество голосующих</p>
 						<p className='font-light text-base text-[#CCCCCC]'>
 							Всего проголосовало
@@ -226,19 +327,24 @@ const MainPage = () => {
 							В период с 10.06.2025 по 10.07.2025
 						</p>
 					</div>
-					<div className='bg-white rounded-[20px] flex flex-col justify-between h-70 p-5'>
-						<p className='font-semibold text-2xl'>Регистрация и голосование</p>
-						<p className='font-light text-base text-[#CCCCCC]'>
-							Соотношение регистраций и голосов
-						</p>
-						<div className='flex flex-col gap-1 w-full'>
-							<div className='bg-[#FFD17D] w-[65%] h-[62.5px] rounded-sm'></div>
-							<div className='bg-[#7DD4FF] w-full h-[62.5px] rounded-sm'></div>
+
+					{role === 'админ' && (
+						<div className='bg-white rounded-[20px] flex flex-col justify-between h-70 p-5'>
+							<p className='font-semibold text-2xl'>
+								Регистрация и голосование
+							</p>
+							<p className='font-light text-base text-[#CCCCCC]'>
+								Соотношение регистраций и голосов
+							</p>
+							<div className='flex flex-col gap-1 w-full'>
+								<div className='bg-[#FFD17D] w-[65%] h-[62.5px] rounded-sm'></div>
+								<div className='bg-[#7DD4FF] w-full h-[62.5px] rounded-sm'></div>
+							</div>
+							<p className='font-light text-base text-[#CCCCCC]'>
+								В период с 10.06.2025 по 10.07.2025
+							</p>
 						</div>
-						<p className='font-light text-base text-[#CCCCCC]'>
-							В период с 10.06.2025 по 10.07.2025
-						</p>
-					</div>
+					)}
 				</div>
 			</div>
 		</>

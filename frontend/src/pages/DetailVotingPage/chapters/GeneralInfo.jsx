@@ -9,9 +9,11 @@ import { BlueTag, GrayTag, YellowTag } from '../../../components/Tags'
 import { BlueButton } from '../../../components/Buttons'
 import { Dropdown } from '../../../components/Inputs'
 import { timeZones } from '../../../data/TimeZone'
+import { useState } from 'react'
 
 const GeneralInfo = ({ title, description, TZid }) => {
 	const materials = ['1', '2', '3', '4']
+
 	return (
 		<>
 			<div className='bg-white shadow-sm rounded-[20px] p-6'>

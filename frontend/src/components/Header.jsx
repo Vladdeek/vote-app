@@ -91,7 +91,7 @@ const AltHeaderDropdown = ({ options = [], title }) => {
 	)
 }
 
-const Header = ({ isAuthorized }) => {
+const Header = ({ isAuthorized, onClick }) => {
 	const Users = ['Наблюдатель', 'Член счётной комиссии', 'Секретарь']
 	const Voting = ['Список голосований', 'Конструктор голосований']
 	const Add = ['Голосование', 'Шаблон голосований', 'Группу пользователей']

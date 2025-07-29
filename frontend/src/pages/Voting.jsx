@@ -13,7 +13,7 @@ import {
 	TransButton,
 } from '../components/Buttons'
 import { AltStyleDropdown } from '../components/Inputs'
-import VoteCard from '../components/VoteCard'
+import { VoteCard } from '../components/VoteCard'
 
 const Voting = () => {
 	const options = ['Показать 10', 'Показать 15', 'Показать 20', 'Показать 25']

@@ -1,11 +1,15 @@
 import { Check } from 'lucide-react'
 import { useState } from 'react'
 
-const LinkText = ({ title }) => {
+const LinkText = ({ title, size, width }) => {
 	return (
 		<>
 			<div className='group inline-flex flex-col w-fit'>
-				<p className='font-light text-[#212121] select-none cursor-pointer'>
+				<p
+					className={` ${size ? size : ''} ${
+						width ? width : 'font-light'
+					} text-[#212121] select-none cursor-pointer`}
+				>
 					{title}
 				</p>
 				<div className='h-[1px] w-0 group-hover:w-full bg-[#212121] transition-all duration-300'></div>

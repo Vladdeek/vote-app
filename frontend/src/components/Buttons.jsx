@@ -32,7 +32,7 @@ const Button = ({ title, onClick }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full py-3 bg-[#212121] border-white rounded-xl text-lg font-medium text-white'
+			className='border-1 w-full py-3 bg-[#212121] border-white rounded-xl text-lg font-medium text-white hover:brightness-110 transition-all cursor-pointer active:scale-98'
 		>
 			{title}
 		</button>
@@ -54,7 +54,7 @@ const WhiteButton = ({ children, onClick }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full flex items-center gap-5 px-5 py-3 whitespace-nowrap border-[#f4f4f4] rounded-lg text-lg font-medium text-[#212121]'
+			className='border-1 w-full flex items-center gap-5 px-5 py-3 whitespace-nowrap border-[#f4f4f4] rounded-lg text-lg font-medium text-[#212121] hover:brightness-90 transition-all cursor-pointer active:scale-98'
 		>
 			{children}
 		</button>
@@ -65,7 +65,7 @@ const BlueButton = ({ onClick, children }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full py-3 bg-[#437DE9] border-white rounded-xl text-lg font-normal text-white flex gap-5 justify-center items-center'
+			className='border-1 w-full py-3 bg-[#437DE9] border-white rounded-xl text-lg font-normal text-white flex gap-5 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98'
 		>
 			{children}
 		</button>
@@ -75,7 +75,7 @@ const AltBlueButton = ({ onClick, children }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full py-3 border-[#437DE9] rounded-xl text-lg font-normal text-[#437DE9] flex gap-5 justify-center items-center'
+			className='border-1 w-full py-3 border-[#437DE9] rounded-xl text-lg font-normal text-[#437DE9] flex gap-5 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98'
 		>
 			{children}
 		</button>
@@ -86,7 +86,7 @@ const GreenButton = ({ onClick, children }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full py-3 px-5 bg-[#5BC25B] border-white rounded-lg text-lg font-normal text-white flex gap-5 justify-center items-center'
+			className='border-1 w-full py-3 px-5 bg-[#5BC25B] border-white rounded-lg text-lg font-normal text-white flex gap-5 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98'
 		>
 			{children}
 		</button>
@@ -97,7 +97,7 @@ const GrayButton = ({ onClick, children }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='w-full py-3 px-5 bg-[#F4F4F4] whitespace-nowrap rounded-lg text-lg font-normal text-[#212121] flex gap-5 justify-center items-center'
+			className='w-full py-3 px-5 bg-[#F4F4F4] whitespace-nowrap rounded-lg text-lg font-normal text-[#212121] flex gap-5 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98'
 		>
 			{children}
 		</button>
@@ -108,7 +108,7 @@ const RedButton = ({ title, onClick }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full py-3  text-[#EE5B5B] border-[#EE5B5B] rounded-xl text-lg font-medium'
+			className='border-1 w-full py-3  text-[#EE5B5B] border-[#EE5B5B] rounded-xl text-lg font-medium hover:brightness-90 transition-all cursor-pointer active:scale-98'
 		>
 			{title}
 		</button>

@@ -69,7 +69,7 @@ const ResultsStyle1 = () => {
 	const VotingMass = [
 		{
 			option: 'Вариант ответа 1',
-			result: 300,
+			result: 900,
 		},
 
 		{
@@ -145,7 +145,7 @@ const ResultsStyle2 = () => {
 	const VotingMass = [
 		{
 			option: 'За',
-			result: 954,
+			result: 3200,
 			color: '#5BC25B',
 			textColor: '#59E059',
 		},
@@ -210,7 +210,7 @@ const ResultsStyle3 = () => {
 	const VotingMass = [
 		{
 			option: 'Вариант 1',
-			result: 200,
+			result: 1000,
 			color: '#EE5B5B',
 		},
 		{
@@ -283,7 +283,7 @@ const ResultsStyle4 = () => {
 		{
 			question: 'Вопрос 1',
 			results: [
-				{ option: 'За', result: 10 },
+				{ option: 'За', result: 100 },
 				{ option: 'Против', result: 25 },
 			],
 			color: 1,
@@ -292,7 +292,7 @@ const ResultsStyle4 = () => {
 			question: 'Вопрос 2',
 			results: [
 				{ option: 'За', result: 10 },
-				{ option: 'Против', result: 34 },
+				{ option: 'Против', result: 5 },
 			],
 			color: 2,
 		},
@@ -396,9 +396,9 @@ const ResultsStyle5 = () => {
 		{
 			question: 'Вопрос 1',
 			results: [
-				{ option: 'За', result: 165 },
+				{ option: 'За', result: 10 },
 				{ option: 'Против', result: 25 },
-				{ option: 'Воздержаться', result: 44 },
+				{ option: 'Воздержаться', result: 5 },
 			],
 		},
 		{
@@ -420,8 +420,8 @@ const ResultsStyle5 = () => {
 		{
 			question: 'Вопрос 4',
 			results: [
-				{ option: 'За', result: 133 },
-				{ option: 'Против', result: 43 },
+				{ option: 'За', result: 13 },
+				{ option: 'Против', result: 1 },
 				{ option: 'Воздержаться', result: 25 },
 			],
 		},
