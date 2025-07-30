@@ -35,7 +35,7 @@ const MainPage = () => {
 			</button>
 			{role !== 'админ' && (
 				<>
-					<div className='relative px-40  -z-1'>
+					<div className='relative 2xl:px-40 lg:px-10 px-1  -z-1'>
 						<p className='mak text-[40px] mb-5 text-white absolute mt-16 ml-20'>
 							Главная
 						</p>
@@ -52,7 +52,7 @@ const MainPage = () => {
 			)}
 
 			<div
-				className={`mx-60 ${
+				className={`3xl:mx-80 2xl:mx-60 lg:mx-20 mx-3 ${
 					role === 'админ' ? 'my-[99px]' : 'mb-[99px] mt-3'
 				}  text-[#212121] `}
 			>
@@ -96,8 +96,8 @@ const MainPage = () => {
 							Управление голосованием
 						</p>
 						<div className='flex gap-2'>
-							<div className='flex flex-col gap-2'>
-								<div className='bg-white rounded-[20px] px-6 py-8 w-[634px] h-[400px] grid grid-cols-5 gap-2'>
+							<div className='flex flex-col gap-2 w-5/11'>
+								<div className='bg-white rounded-[20px] px-6 py-8  h-[400px] grid grid-cols-5 gap-2'>
 									<div className='col-span-3 flex flex-col justify-between'>
 										<p className='font-bold text-xl  leading-5'>
 											Ваш голос — неприкосновенен.
@@ -123,7 +123,7 @@ const MainPage = () => {
 										alt=''
 									/>
 								</div>
-								<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 w-[634px] h-[481px]'>
+								<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 h-[481px]'>
 									<p className='font-bold text-xl'>
 										Lorem Ipsum is simply dummy text of the printing and
 										typesetting industry. Lorem Ipsum has been the
@@ -166,8 +166,8 @@ const MainPage = () => {
 									</div>
 								</div>
 							</div>
-							<div className='flex flex-col gap-2'>
-								<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 w-[796px] h-[431px]'>
+							<div className='flex flex-col gap-2 w-6/11'>
+								<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 h-[431px]'>
 									<p className='font-bold text-xl'>
 										Lorem Ipsum is simply dummy text of the printing and
 										typesetting industry. Lorem Ipsum has been the
@@ -198,7 +198,7 @@ const MainPage = () => {
 										<RedButton title={'Завершить голосование'} />
 									</div>
 								</div>
-								<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 w-[796px] h-[450px]'>
+								<div className='bg-white rounded-[20px] inline-flex flex-col justify-between p-5 h-[450px]'>
 									<p className='font-bold text-xl'>
 										Lorem Ipsum is simply dummy text of the printing and
 										typesetting industry. Lorem Ipsum has been the
