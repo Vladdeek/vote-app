@@ -17,17 +17,17 @@ import ProgressCircle from './ProgressCircle'
 const DateRow = ({ date, time, title }) => {
 	return (
 		<>
-			<p className='text-base font-regular whitespace-nowrap font-normal text-[#ccc] mb-2'>
+			<p className='text-base font-normal whitespace-nowrap font-normal text-[#ccc] mb-2'>
 				{title}
 			</p>
 			<div className='flex gap-3 items-center text-xl'>
 				<div className='flex gap-2 items-center'>
 					<Calendar1 />
-					<p className='font-regular text-base mt-[2px]'>{date}</p>
+					<p className='font-normal text-base mt-[2px]'>{date}</p>
 				</div>
 				<div className='flex gap-2 items-center'>
 					<AlarmClock />
-					<p className='font-regular text-base mt-[2px]'>{time}</p>
+					<p className='font-normal text-base mt-[2px]'>{time}</p>
 				</div>
 			</div>
 		</>
@@ -40,10 +40,10 @@ export const VoteCard = ({ title, description, timezone, deadlines }) => {
 			<div className='bg-white flex flex-col gap-3 rounded-[20px] p-5 shadow-sm'>
 				<p className='text-xl font-bold'>{title}</p>
 				<div className='flex justify-between'>
-					<p className='text-base font-regular text-[#ccc]'>{description}</p>
+					<p className='text-base font-normal text-[#ccc]'>{description}</p>
 					<div className='flex items-center gap-3'>
 						<Globe />
-						<p className='text-base font-regular text-[#212121]'>{timezone}</p>
+						<p className='text-base font-normal text-[#212121]'>{timezone}</p>
 					</div>
 				</div>
 				<div className='grid grid-cols-3'>
@@ -98,10 +98,10 @@ export const MinInfoVoteCard = ({
 			<div className='bg-white flex flex-col gap-3 rounded-[20px] p-5 border-1 border-[#f4f4f4]'>
 				<p className='text-base font-bold'>{title}</p>
 				<div className='flex justify-between'>
-					<p className='text-base font-regular text-[#ccc]'>{description}</p>
+					<p className='text-base font-normal text-[#ccc]'>{description}</p>
 					<div className='flex items-center gap-3'>
 						<Globe />
-						<p className='text-base font-regular text-[#212121]'>{timezone}</p>
+						<p className='text-base font-normal text-[#212121]'>{timezone}</p>
 					</div>
 				</div>
 				<div className='grid grid-cols-7 gap-2'>

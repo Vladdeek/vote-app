@@ -139,7 +139,7 @@ const MainPage = () => {
 									</YellowTag>
 									<div className='grid grid-cols-2 gap-2'>
 										<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
-											<p className='text-base font-regular text-[#212121]'>
+											<p className='text-base font-normal text-[#212121]'>
 												Проголосовало человек
 											</p>
 											<div className='flex items-center gap-2'>
@@ -148,7 +148,7 @@ const MainPage = () => {
 													+60%
 												</p>
 											</div>
-											<p className='text-base font-regular text-[#ccc]'>
+											<p className='text-base font-normal text-[#ccc]'>
 												За последние 24 часа
 											</p>
 										</div>
@@ -181,7 +181,7 @@ const MainPage = () => {
 									</GreenTag>
 									<div className='grid grid-cols-2 gap-2'>
 										<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
-											<p className='text-base font-regular text-[#212121]'>
+											<p className='text-base font-normal text-[#212121]'>
 												Проголосовало человек
 											</p>
 											<div className='flex items-center gap-2'>
@@ -190,7 +190,7 @@ const MainPage = () => {
 													+10%
 												</p>
 											</div>
-											<p className='text-base font-regular text-[#ccc]'>
+											<p className='text-base font-normal text-[#ccc]'>
 												За последние 24 часа
 											</p>
 										</div>
@@ -203,7 +203,7 @@ const MainPage = () => {
 										Lorem Ipsum is simply dummy text of the printing and
 										typesetting industry. Lorem Ipsum has been the
 									</p>
-									<p className='font-regular text-base text-[#CCCCCC]'>
+									<p className='font-normal text-base text-[#CCCCCC]'>
 										Группа пользователей
 									</p>
 									<YellowTag wfull={false}>
@@ -212,7 +212,7 @@ const MainPage = () => {
 									</YellowTag>
 									<div className='grid grid-cols-2 gap-2'>
 										<div className='col-span-1 rounded-2xl flex flex-col justify-between border-1 border-[#ccc] h-[150px] p-4'>
-											<p className='text-base font-regular text-[#212121]'>
+											<p className='text-base font-normal text-[#212121]'>
 												Проголосовало человек
 											</p>
 											<div className='flex items-center gap-2'>
@@ -221,7 +221,7 @@ const MainPage = () => {
 													+16%
 												</p>
 											</div>
-											<p className='text-base font-regular text-[#ccc]'>
+											<p className='text-base font-normal text-[#ccc]'>
 												За последние 24 часа
 											</p>
 										</div>
@@ -292,7 +292,7 @@ const MainPage = () => {
 						} justify-between h-70 p-5`}
 					>
 						<p className='font-bold text-xl'>Регистрация и голосование</p>
-						<p className='font-regular text-base text-[#CCCCCC]'>
+						<p className='font-normal text-base text-[#CCCCCC]'>
 							Соотношение регистраций и голосов
 						</p>
 						<div className='grid grid-cols-12 gap-1 h-40 items-end'>
@@ -308,10 +308,10 @@ const MainPage = () => {
 							))}
 						</div>
 						<div className='flex justify-between'>
-							<p className='font-regular text-base text-[#CCCCCC]'>01.04</p>
-							<p className='font-regular text-base text-[#CCCCCC]'>01.05</p>
-							<p className='font-regular text-base text-[#CCCCCC]'>01.06</p>
-							<p className='font-regular text-base text-[#CCCCCC]'>01.07</p>
+							<p className='font-normal text-base text-[#CCCCCC]'>01.04</p>
+							<p className='font-normal text-base text-[#CCCCCC]'>01.05</p>
+							<p className='font-normal text-base text-[#CCCCCC]'>01.06</p>
+							<p className='font-normal text-base text-[#CCCCCC]'>01.07</p>
 						</div>
 					</div>
 					{role !== 'админ' && (
@@ -326,7 +326,7 @@ const MainPage = () => {
 						} justify-between h-70 p-5`}
 					>
 						<p className='font-bold text-xl'>Количество голосующих</p>
-						<p className='font-regular text-base text-[#CCCCCC]'>
+						<p className='font-normal text-base text-[#CCCCCC]'>
 							Всего проголосовало
 						</p>
 						<div className='relative w-fit'>
@@ -335,7 +335,7 @@ const MainPage = () => {
 								+16%
 							</p>
 						</div>
-						<p className='font-regular text-base text-[#CCCCCC]'>
+						<p className='font-normal text-base text-[#CCCCCC]'>
 							В период с 10.06.2025 по 10.07.2025
 						</p>
 					</div>
@@ -343,14 +343,14 @@ const MainPage = () => {
 					{role === 'админ' && (
 						<div className='bg-white rounded-[20px] flex flex-col justify-between h-70 p-5'>
 							<p className='font-bold text-xl'>Регистрация и голосование</p>
-							<p className='font-regular text-base text-[#CCCCCC]'>
+							<p className='font-normal text-base text-[#CCCCCC]'>
 								Соотношение регистраций и голосов
 							</p>
 							<div className='flex flex-col gap-1 w-full'>
 								<div className='bg-[#FFD17D] w-[65%] h-[62.5px] rounded-sm'></div>
 								<div className='bg-[#7DD4FF] w-full h-[62.5px] rounded-sm'></div>
 							</div>
-							<p className='font-regular text-base text-[#CCCCCC]'>
+							<p className='font-normal text-base text-[#CCCCCC]'>
 								В период с 10.06.2025 по 10.07.2025
 							</p>
 						</div>

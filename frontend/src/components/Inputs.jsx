@@ -1,4 +1,11 @@
-import { CircleCheck, Dot, Scan, ScanEye } from 'lucide-react'
+import {
+	AlarmClock,
+	Calendar1,
+	CircleCheck,
+	Dot,
+	Scan,
+	ScanEye,
+} from 'lucide-react'
 import { useState } from 'react'
 
 const InputDefault = ({ type, placeholder, title, required, validate }) => {
@@ -13,19 +20,113 @@ const InputDefault = ({ type, placeholder, title, required, validate }) => {
 
 	return (
 		<div className='w-full inline-flex flex-col'>
-			<div className='inline-flex items-center gap-[10px]'>
-				<p className='text-[18px]'>{title}</p>
-				{required && (
-					<CircleCheck color={!inputStatus ? '#212121' : '#008200'} size={16} />
-				)}
-			</div>
+			{title && (
+				<div className='inline-flex items-center gap-[10px]'>
+					<p className='text-[18px]'>{title}</p>
+					{required && (
+						<CircleCheck
+							color={!inputStatus ? '#212121' : '#008200'}
+							size={16}
+						/>
+					)}
+				</div>
+			)}
+
 			<input
 				type={type}
 				value={inputValue}
 				onChange={handleInputChange}
-				className='rounded-xl border-1 border-[#212121] p-[12px] text-gray-400'
+				className='rounded-xl border-1 border-[#212121] p-[12px] text-[#212121] placeholder:text-[#ccc]'
 				placeholder={placeholder}
 			/>
+		</div>
+	)
+}
+
+const RadioList = ({ options, title, required }) => {
+	return (
+		<div className='w-full inline-flex flex-col'>
+			<div className='inline-flex items-center gap-[10px]'>
+				<p className='text-[18px]'>{title}</p>
+				{required && <CircleCheck color={'#008200'} size={16} />}
+			</div>
+			<div className='relative flex flex-col gap-1 p-1 text-sm border-2 border-[#437DE9] rounded-lg'>
+				{options.map((item, index) => (
+					<label
+						key={index}
+						className='flex-1 text-start select-none col-span-1'
+					>
+						<input
+							type='radio'
+							name='radio'
+							className='hidden peer'
+							defaultChecked={index === 0}
+						/>
+						<span className='flex cursor-pointer items-center justify-start rounded-xl p-2 text-[#212121] transition-all duration-150 ease-in-out  peer-checked:text-[#437DE9] peer-checked:font-semibold'>
+							{item}
+						</span>
+					</label>
+				))}
+			</div>
+		</div>
+	)
+}
+
+const InputDataTime = ({ title, required }) => {
+	const [dateStatus, setDateStatus] = useState(false)
+	const [timeStatus, setTimeStatus] = useState(false)
+	const [dateValue, setDateValue] = useState('')
+	const [timeValue, setTimeValue] = useState('')
+
+	const handleDateChange = e => {
+		const value = e.target.value
+		setDateValue(value)
+		setDateStatus(value.trim() !== '')
+	}
+
+	const handleTimeChange = e => {
+		const value = e.target.value
+		setTimeValue(value)
+		setTimeStatus(value.trim() !== '')
+	}
+
+	return (
+		<div className='w-full inline-flex flex-col gap-2'>
+			<div className='inline-flex items-center gap-[10px]'>
+				<p className='text-[18px]'>{title}</p>
+				{required && (
+					<CircleCheck
+						color={!(dateStatus && timeStatus) ? '#212121' : '#008200'}
+						size={16}
+					/>
+				)}
+			</div>
+			<div className='inline-flex justify-between items-center border-1 border-[#212121] rounded-xl  p-[12px]  text-[#ccc]'>
+				<div className='inline-flex gap-3'>
+					<div className='inline-flex gap-1 items-center'>
+						<Calendar1 className='text-[#212121]' size={20} />
+						<input
+							type='date'
+							value={dateValue}
+							onChange={handleDateChange}
+							placeholder='Выберите дату'
+							className={`outline-0 ${dateStatus && 'text-[#212121]'}`}
+						/>
+					</div>
+					<div className='inline-flex gap-1 items-center'>
+						<AlarmClock className='text-[#212121]' size={20} />
+						<input
+							type='time'
+							value={timeValue}
+							onChange={handleTimeChange}
+							placeholder='Выберите время'
+							className={`outline-0 ${dateStatus && 'text-[#212121]'}`}
+						/>
+					</div>
+				</div>
+
+				<div className='rounded-full h-2 w-2 bg-[#212121] '></div>
+			</div>
 		</div>
 	)
 }
@@ -107,7 +208,7 @@ const Dropdown = ({
 					<p className='whitespace-nowrap'>
 						{selectedOption ? selectedOption : placeholder}
 					</p>
-					<Dot color='#212121' />
+					<div className='bg-[#212121] h-2 w-2 rounded-full'></div>
 				</div>
 
 				<ul
@@ -185,4 +286,6 @@ export {
 	InputPassword,
 	Dropdown,
 	AltStyleDropdown,
+	InputDataTime,
+	RadioList,
 }

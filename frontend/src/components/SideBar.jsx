@@ -7,7 +7,7 @@ const SideBarBtn = ({ index, activeIndex, setActiveIndex, children }) => {
 		<div
 			onClick={() => setActiveIndex(index)}
 			className={[
-				'border-1 w-full py-2 px-3 border-white rounded-xl text-lg font-normal flex gap-5 justify-start items-center transition-all cursor-pointer',
+				'border-1 w-full py-2 px-3 border-white rounded-xl text-base font-medium flex gap-5 justify-start items-center transition-all cursor-pointer whitespace-nowrap',
 				isActive
 					? 'bg-[#D2F0FF] text-[#437DE9]'
 					: 'hover:bg-[#D2F0FF] hover:text-[#437DE9]',

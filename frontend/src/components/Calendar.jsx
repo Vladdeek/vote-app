@@ -52,7 +52,7 @@ const Calendar = () => {
 					</div>
 				</div>
 				<div className='inline-flex justify-between items-center border-1 border-[#ccc] rounded-lg py-2 px-3 uppercase w-[218px]'>
-					<p className='text-base font-regular'>
+					<p className='text-base font-normal'>
 						{format(currentDate, 'LLLL yyyy', { locale: ru })}
 					</p>
 					<div className='flex'>

@@ -64,6 +64,20 @@ body {
 	font-family: 'Supermolot Neue', sans-serif;
 }
 
+/* Скрываем стандартный скроллбар */
+.custom-scrollbar-container::-webkit-scrollbar {
+	width: 0;
+	background: transparent;
+}
+
+/* Стили для кастомного скроллбара */
+.scroll-thumb {
+	height: 20%; /* Начальная высота ползунка */
+	position: absolute;
+	top: 0;
+	transition: height 0.2s, top 0.2s;
+}
+
 .mak {
 	font-family: 'MAK', sans-serif;
 }

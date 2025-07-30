@@ -6,7 +6,7 @@ const ResultsBlock = ({ title, description, children, buttons = true }) => {
 		<div className='bg-white shadow-sm rounded-[20px] p-6'>
 			<p className='text-base font-bold'>{title}</p>
 			<div className='flex justify-between mb-4'>
-				<p className='text-base font-regular text-[#ccc]'>{description}</p>
+				<p className='text-base font-normal text-[#ccc]'>{description}</p>
 				{buttons && (
 					<div className='flex items-center gap-3'>
 						<ChartColumn

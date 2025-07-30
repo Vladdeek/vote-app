@@ -6,7 +6,7 @@ const VoteMemderCard = ({ FullName, Email, hisReg, hisVote }) => {
 		<>
 			<div className='w-full border-l-3 border-[#212121] p-2'>
 				<div className='flex items-center gap-2'>
-					<div className='flex flex-col text-base font-regular w-1/3'>
+					<div className='flex flex-col text-base font-normal w-1/3'>
 						<p>{FullName}</p>
 						<p>{Email}</p>
 					</div>

@@ -14,7 +14,7 @@ import { useState } from 'react'
 const DateRow = ({ date, time, title, column }) => {
 	return (
 		<>
-			<p className='text-base font-regular whitespace-nowrap font-normal text-[#ccc] mb-2'>
+			<p className='text-base font-normal whitespace-nowrap font-normal text-[#ccc] mb-2'>
 				{title}
 			</p>
 			<div
@@ -24,11 +24,11 @@ const DateRow = ({ date, time, title, column }) => {
 			>
 				<div className='flex gap-2 items-center'>
 					<Calendar1 />
-					<p className='font-regular text-base mt-[2px]'>{date}</p>
+					<p className='font-normal text-base mt-[2px]'>{date}</p>
 				</div>
 				<div className='flex gap-2 items-center'>
 					<AlarmClock />
-					<p className='font-regular text-base mt-[2px]'>{time}</p>
+					<p className='font-normal text-base mt-[2px]'>{time}</p>
 				</div>
 			</div>
 		</>
@@ -43,10 +43,10 @@ const GeneralInfo = ({ title, description, TZid, deadlines }) => {
 			<div className='bg-white shadow-sm rounded-[20px] p-6'>
 				<p className='text-xl font-bold'>{title}</p>
 				<div className='flex justify-between mb-4'>
-					<p className='text-base font-regular text-[#ccc]'>{description}</p>
+					<p className='text-base font-normal text-[#ccc]'>{description}</p>
 					<div className='flex items-center gap-3'>
 						<Globe />
-						<p className='text-base font-regular text-[#212121]'>
+						<p className='text-base font-normal text-[#212121]'>
 							{timeZones[TZid]}
 						</p>
 					</div>

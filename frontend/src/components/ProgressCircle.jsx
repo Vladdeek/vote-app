@@ -38,7 +38,7 @@ const ProgressCircle = ({ progress }) => {
 					<p className='font-black text-[48px]'>
 						{Math.round(normalizedProgress)}%
 					</p>
-					<p className='font-regular text-lg text-[#ccc]'>Времени осталось</p>
+					<p className='font-normal text-lg text-[#ccc]'>Времени осталось</p>
 				</div>
 			</div>
 		</div>

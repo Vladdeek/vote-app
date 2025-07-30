@@ -137,19 +137,22 @@ const PrevNextButton = ({ children, onClick }) => {
 	)
 }
 
-const RadioBtn = ({ options, title, required }) => {
+const RadioBtn = ({ options, title, required, name }) => {
 	return (
 		<div className='w-full inline-flex flex-col'>
 			<div className='inline-flex items-center gap-[10px]'>
 				<p className='text-[18px]'>{title}</p>
 				{required && <CircleCheck color={'#008200'} size={16} />}
 			</div>
-			<div className='relative flex gap-2 p-1 text-sm'>
+			<div className='relative grid grid-cols-2 gap-2 p-1 text-sm'>
 				{options.map((item, index) => (
-					<label key={index} className='flex-1 text-center select-none'>
+					<label
+						key={index}
+						className='flex-1 text-center select-none col-span-1'
+					>
 						<input
 							type='radio'
-							name='radio'
+							name={name}
 							className='hidden peer'
 							defaultChecked={index === 0}
 						/>
