@@ -22,44 +22,38 @@ const Voting = () => {
 			title: 'Выборы старосты группы',
 			description: 'Студенты группы ПИ-21-1',
 			timezone: '(UTC+3) Россия - Москва (MSK)',
-			dateStartReg: '06.07.2025',
-			timeStartReg: '10:00',
-			dateStartVote: '07.07.2025',
-			timeStartVote: '10:00',
-			dateEndReg: '06.07.2025',
-			timeEndReg: '18:00',
-			dateEndVote: '07.07.2025',
-			timeEndVote: '18:00',
+			deadlines: [
+				{ title: 'Начало регистрации', date: '06.07.2025', time: '8:00' },
+				{ title: 'Окончание регистрации', date: '06.07.2025', time: '10:00' },
+				{ title: 'Начало голосования', date: '06.07.2025', time: '10:00' },
+				{ title: 'Окончание голосования', date: '11.07.2025', time: '00:00' },
+			],
 		},
 		{
 			title: 'Голосование за проект',
 			description: "Команда разработчиков 'Alpha'",
 			timezone: '(UTC+3) Россия - Москва (MSK)',
-			dateStartReg: '10.07.2025',
-			timeStartReg: '09:00',
-			dateStartVote: '12.07.2025',
-			timeStartVote: '09:00',
-			dateEndReg: '11.07.2025',
-			timeEndReg: '20:00',
-			dateEndVote: '13.07.2025',
-			timeEndVote: '20:00',
+			deadlines: [
+				{ title: 'Начало регистрации', date: '06.08.2025', time: '9:00' },
+				{ title: 'Окончание регистрации', date: '06.08.2025', time: '10:00' },
+				{ title: 'Начало голосования', date: '06.08.2025', time: '10:00' },
+				{ title: 'Окончание голосования', date: '06.08.2025', time: '12:00' },
+			],
 		},
 		{
 			title: 'Опрос по корпоративным мероприятиям',
 			description: 'Сотрудники отдела маркетинга',
 			timezone: '(UTC+3) Россия - Москва (MSK)',
-			dateStartReg: '15.07.2025',
-			timeStartReg: '11:00',
-			dateStartVote: '16.07.2025',
-			timeStartVote: '11:00',
-			dateEndReg: '15.07.2025',
-			timeEndReg: '17:00',
-			dateEndVote: '16.07.2025',
-			timeEndVote: '17:00',
+			deadlines: [
+				{ title: 'Начало регистрации', date: '10.09.2025', time: '8:00' },
+				{ title: 'Окончание регистрации', date: '10.09.2025', time: '12:00' },
+				{ title: 'Начало голосования', date: '10.09.2025', time: '10:00' },
+				{ title: 'Окончание голосования', date: '11.09.2025', time: '00:00' },
+			],
 		},
 	]
 	return (
-		<div className='mx-60 my-[99px] text-[#212121] tracking-wide'>
+		<div className='mx-60 my-[99px] text-[#212121] '>
 			<p className='mak text-[40px] mb-5 '>Главная</p>
 			<div className='inline-flex gap-2 mb-2'>
 				<TransButton>
@@ -92,20 +86,13 @@ const Voting = () => {
 				</div>
 			</div>
 			<div className='flex flex-col gap-3'>
-				{voteCardsData.map((vote, index) => (
+				{voteCardsData.map((item, index) => (
 					<VoteCard
 						key={index}
-						title={vote.title}
-						description={vote.description}
-						timezone={vote.timezone}
-						dateStartReg={vote.dateStartReg}
-						dateStartVote={vote.dateStartVote}
-						timeStartReg={vote.timeStartReg}
-						timeStartVote={vote.timeStartVote}
-						dateEndReg={vote.dateEndReg}
-						dateEndVote={vote.dateEndVote}
-						timeEndReg={vote.timeEndReg}
-						timeEndVote={vote.timeEndVote}
+						title={item.title}
+						description={item.description}
+						timezone={item.timezone}
+						deadlines={item.deadlines}
 					/>
 				))}
 			</div>

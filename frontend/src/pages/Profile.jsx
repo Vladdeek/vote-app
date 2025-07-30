@@ -11,7 +11,7 @@ import { timeZones } from '../data/TimeZone'
 
 const Profile = () => {
 	return (
-		<div className='mx-60 my-[99px] text-[#212121] tracking-wide'>
+		<div className='mx-60 my-[99px] text-[#212121] '>
 			<div className='grid grid-cols-3 gap-2 w-full'>
 				<div className='col-span-1 flex flex-col gap-2'>
 					<div className='bg-white rounded-[20px] flex flex-col gap-4 w-full p-5 shadow-sm'>

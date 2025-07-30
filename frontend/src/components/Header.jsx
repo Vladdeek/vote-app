@@ -108,7 +108,7 @@ const Header = ({ isAuthorized, onClick }) => {
 	return (
 		<>
 			<div className='h-25 bg-[#212121]'>
-				<div className='flex justify-between py-[18px] mx-60 text-white text-lg font-medium'>
+				<div className='flex justify-between py-[18px] mx-60 text-white text-md font-semibold'>
 					<div className='flex gap-5 items-start'>
 						<div className='flex items-start'>
 							<img

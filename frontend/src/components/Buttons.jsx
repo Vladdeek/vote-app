@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, CircleCheck } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 const ToggleLangBtn = () => {
@@ -86,7 +86,7 @@ const GreenButton = ({ onClick, children }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full py-3 px-5 bg-[#5BC25B] border-white rounded-lg text-lg font-normal text-white flex gap-5 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98'
+			className='border-1 w-full py-3 px-3 bg-[#5BC25B] border-white rounded-lg text-lg font-normal text-white flex gap-3 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98 whitespace-nowrap'
 		>
 			{children}
 		</button>
@@ -97,7 +97,7 @@ const GrayButton = ({ onClick, children }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='w-full py-3 px-5 bg-[#F4F4F4] whitespace-nowrap rounded-lg text-lg font-normal text-[#212121] flex gap-5 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98'
+			className='w-full py-3 px-3 bg-[#F4F4F4] whitespace-nowrap rounded-lg text-lg font-normal text-[#212121] flex gap-3 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98'
 		>
 			{children}
 		</button>
@@ -137,6 +137,32 @@ const PrevNextButton = ({ children, onClick }) => {
 	)
 }
 
+const RadioBtn = ({ options, title, required }) => {
+	return (
+		<div className='w-full inline-flex flex-col'>
+			<div className='inline-flex items-center gap-[10px]'>
+				<p className='text-[18px]'>{title}</p>
+				{required && <CircleCheck color={'#008200'} size={16} />}
+			</div>
+			<div className='relative flex gap-2 p-1 text-sm'>
+				{options.map((item, index) => (
+					<label key={index} className='flex-1 text-center select-none'>
+						<input
+							type='radio'
+							name='radio'
+							className='hidden peer'
+							defaultChecked={index === 0}
+						/>
+						<span className='flex cursor-pointer items-center justify-center rounded-xl h-[50px] text-[#212121] border-1 border-[#212121] transition-all duration-150 ease-in-out  peer-checked:bg-[#212121] peer-checked:text-white'>
+							{item}
+						</span>
+					</label>
+				))}
+			</div>
+		</div>
+	)
+}
+
 export {
 	ToggleLangBtn,
 	Button,
@@ -148,4 +174,5 @@ export {
 	TransButton,
 	WhiteButton,
 	PrevNextButton,
+	RadioBtn,
 }

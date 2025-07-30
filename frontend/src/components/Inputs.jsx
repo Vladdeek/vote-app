@@ -101,22 +101,24 @@ const Dropdown = ({
 				className={`  border-1 rounded-xl border-[#212121] overflow-hidden cursor-pointer`}
 			>
 				<div
-					className='text-gray-400 flex justify-between items-center p-[12px] select-none'
+					className='text-gray-400 flex justify-between items-center p-[12px] select-none '
 					onClick={toggleDropdown}
 				>
-					{selectedOption ? selectedOption : placeholder}
+					<p className='whitespace-nowrap'>
+						{selectedOption ? selectedOption : placeholder}
+					</p>
 					<Dot color='#212121' />
 				</div>
 
 				<ul
 					className={`${
 						!isOpen && 'hidden'
-					} transition-all absolute z-10 w-full mt-2 bg-white max-h-100 overflow-scroll rounded-xl shadow-sm`}
+					} transition-all absolute z-100 w-full mt-2 bg-white max-h-100 overflow-scroll rounded-xl shadow-sm`}
 				>
 					{options.map((option, index) => (
 						<li
 							key={index}
-							className='hover:bg-gray-100 p-2 cursor-pointer select-none'
+							className='hover:bg-gray-100 p-2 cursor-pointer select-none whitespace-nowrap'
 							onClick={() => handleOptionClick(option)}
 						>
 							{option}

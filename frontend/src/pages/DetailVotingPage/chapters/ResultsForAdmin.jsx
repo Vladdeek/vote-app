@@ -1,22 +1,24 @@
 import { AlignRight, ChartColumn } from 'lucide-react'
 import { Button, GrayButton } from '../../../components/Buttons'
 
-const ResultsBlock = ({ title, description, children }) => {
+const ResultsBlock = ({ title, description, children, buttons = true }) => {
 	return (
 		<div className='bg-white shadow-sm rounded-[20px] p-6'>
-			<p className='text-2xl font-semibold'>{title}</p>
+			<p className='text-base font-bold'>{title}</p>
 			<div className='flex justify-between mb-4'>
-				<p className='text-lg font-normal text-[#ccc]'>{description}</p>
-				<div className='flex items-center gap-3'>
-					<ChartColumn
-						color='white'
-						className='bg-[#212121] p-2 rounded-lg w-[36px] h-[36px] cursor-pointer'
-					/>
-					<AlignRight
-						color='#212121'
-						className='bg-[#f4f4f4] p-2 rounded-lg w-[36px] h-[36px] cursor-pointer'
-					/>
-				</div>
+				<p className='text-base font-regular text-[#ccc]'>{description}</p>
+				{buttons && (
+					<div className='flex items-center gap-3'>
+						<ChartColumn
+							color='white'
+							className='bg-[#212121] p-2 rounded-lg w-[36px] h-[36px] cursor-pointer'
+						/>
+						<AlignRight
+							color='#212121'
+							className='bg-[#f4f4f4] p-2 rounded-lg w-[36px] h-[36px] cursor-pointer'
+						/>
+					</div>
+				)}
 			</div>
 			{children}
 		</div>
@@ -28,7 +30,7 @@ const ResultsForAdmin = () => {
 		<>
 			<div className='flex flex-col gap-3'>
 				<div className='bg-white shadow-sm rounded-[20px] p-6'>
-					<p className='text-2xl font-semibold'>Результаты голосования</p>
+					<p className='text-xl font-bold'>Результаты голосования</p>
 				</div>
 				<ResultsBlock
 					title={'№1 Пример вопроса?'}
@@ -54,10 +56,7 @@ const ResultsForAdmin = () => {
 				>
 					<ResultsStyle5 />
 				</ResultsBlock>
-				<ResultsBlock
-					title={'№5 Пример вопроса?'}
-					description={'Необходимо выбрать один вариант ответа'}
-				>
+				<ResultsBlock title={'Итоги голосования'} buttons={false}>
 					<ResultsStyle2 />
 				</ResultsBlock>
 			</div>
@@ -95,20 +94,22 @@ const ResultsStyle1 = () => {
 		<>
 			<div className='grid grid-cols-5 gap-2'>
 				<div className='col-span-3'>
-					<p className='text-start text-[#ccc] text-lg'>Вариант ответа</p>
+					<p className='text-start text-[#ccc] text-base'>Вариант ответа</p>
 					<div className='flex flex-col-reverse gap-2'>
 						{sortedVotingMass.map((item, index) => (
 							<div
 								key={index}
 								className='flex items-center p-3 rounded-lg bg-[#D2F0FF]'
 							>
-								<p className='text-start text-[#2E4550]'>{item.option}</p>
+								<p className='text-start font-medium text-[#2E4550]'>
+									{item.option}
+								</p>
 							</div>
 						))}
 					</div>
 				</div>
 				<div className='col-span-2 gap-2'>
-					<p className='text-start text-[#ccc] text-lg'>Результат</p>
+					<p className='text-start text-[#ccc] text-base'>Результат</p>
 					<div className='flex flex-col-reverse gap-2'>
 						{sortedVotingMass.map((item, index) => {
 							const percentage = (item.result / AllVotingPoints) * 100
@@ -129,7 +130,9 @@ const ResultsStyle1 = () => {
 											style={{ width: `${percentage}%` }}
 										/>
 										<div className='relative z-10 w-full'>
-											<p className='text-start text-[#212121]'>{item.result}</p>
+											<p className='text-start font-medium text-[#212121]'>
+												{item.result}
+											</p>
 										</div>
 									</div>
 								</div>
@@ -174,12 +177,12 @@ const ResultsStyle2 = () => {
 
 				return (
 					<div key={index} className='flex flex-col items-center col-span-1'>
-						<div className='relative w-full border-1 border-[#f4f4f4] rounded-xl h-[194px] flex flex-col justify-end overflow-hidden'>
+						<div className='relative w-full border-1 border-[#f4f4f4] rounded-[20px] h-[194px] flex flex-col justify-end overflow-hidden'>
 							<div className='absolute top-3 text-center w-full flex justify-center'>
-								<p className='text-xl font-semibold'>{item.option}</p>
+								<p className='text-xl font-bold'>{item.option}</p>
 							</div>
 							<div
-								className={`w-full rounded-t-lg transition-all duration-500 `}
+								className={`w-full rounded-t-[20px] transition-all duration-500 `}
 								style={{
 									height: `${percentage}%`,
 									backgroundColor: `${item.color}`,
@@ -187,7 +190,7 @@ const ResultsStyle2 = () => {
 							/>
 							<div className='absolute bottom-3 flex justify-center w-full'>
 								<p
-									className={`text-sm font-semibold ${
+									className={`text-xl font-bold ${
 										percentage >= 14 && item.color !== '#f4f4f4'
 											? 'text-white'
 											: 'text-[#212121]'
@@ -250,7 +253,7 @@ const ResultsStyle3 = () => {
 									/>
 								</div>
 								<div className='text-center w-full flex justify-center'>
-									<p className='text-xl font-normal text-[#ccc]'>
+									<p className='text-base font-normal text-[#ccc]'>
 										{item.option}
 									</p>
 								</div>
@@ -474,7 +477,7 @@ const ResultsStyle5 = () => {
 										</>
 									)
 								})}
-								<p className='h-1 whitespace-nowrap text-center col-span-3 pb-4'>
+								<p className='h-1 whitespace-nowrap text-[#ccc] text-center col-span-3 pb-4'>
 									{item.question}
 								</p>
 							</div>

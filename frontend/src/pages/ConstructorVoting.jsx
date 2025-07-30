@@ -2,8 +2,10 @@ import { Layers, SquarePlus } from 'lucide-react'
 import { useState } from 'react'
 import { SideBar, SideBarBtn } from '../components/SideBar'
 import { InputDefault } from '../components/Inputs'
+import { RadioBtn } from '../components/Buttons'
 
 const VotingConstructor = () => {
+	const FirstRadio = ['Тайное голосование', 'Открытое голосование']
 	return (
 		<>
 			<div className='flex gap-3 items-center mb-3'>
@@ -18,6 +20,11 @@ const VotingConstructor = () => {
 						title={'Название голосования'}
 						required={true}
 						placeholder={'Введите название'}
+					/>
+					<RadioBtn
+						title={'Доступность голосования'}
+						options={FirstRadio}
+						required={true}
 					/>
 				</div>
 			</div>
@@ -42,7 +49,7 @@ const VotingTemplates = () => {
 const Constructor = () => {
 	const [isActive, setIsActive] = useState(0)
 	return (
-		<div className='mx-60 my-[99px] text-[#212121] tracking-wide'>
+		<div className='mx-60 my-[99px] text-[#212121] '>
 			<p className='mak text-[40px] mb-5 '>Конструктор голосований</p>
 			<div className='grid grid-cols-4 gap-2'>
 				<div className='col-span-1'>

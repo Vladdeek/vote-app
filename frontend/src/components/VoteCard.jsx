@@ -17,43 +17,33 @@ import ProgressCircle from './ProgressCircle'
 const DateRow = ({ date, time, title }) => {
 	return (
 		<>
-			<p className='text-lg font-normal text-[#ccc] mb-2'>{title}</p>
+			<p className='text-base font-regular whitespace-nowrap font-normal text-[#ccc] mb-2'>
+				{title}
+			</p>
 			<div className='flex gap-3 items-center text-xl'>
 				<div className='flex gap-2 items-center'>
 					<Calendar1 />
-					<p className='font-normal mt-[2px]'>{date}</p>
+					<p className='font-regular text-base mt-[2px]'>{date}</p>
 				</div>
 				<div className='flex gap-2 items-center'>
 					<AlarmClock />
-					<p className='font-normal mt-[2px]'>{time}</p>
+					<p className='font-regular text-base mt-[2px]'>{time}</p>
 				</div>
 			</div>
 		</>
 	)
 }
 
-export const VoteCard = ({
-	title,
-	description,
-	timezone,
-	dateStartReg,
-	dateStartVote,
-	timeStartReg,
-	timeStartVote,
-	dateEndReg,
-	dateEndVote,
-	timeEndReg,
-	timeEndVote,
-}) => {
+export const VoteCard = ({ title, description, timezone, deadlines }) => {
 	return (
 		<>
 			<div className='bg-white flex flex-col gap-3 rounded-[20px] p-5 shadow-sm'>
-				<p className='text-2xl font-semibold'>{title}</p>
+				<p className='text-xl font-bold'>{title}</p>
 				<div className='flex justify-between'>
-					<p className='text-lg font-normal text-[#ccc]'>{description}</p>
+					<p className='text-base font-regular text-[#ccc]'>{description}</p>
 					<div className='flex items-center gap-3'>
 						<Globe />
-						<p className='text-lg font-normal text-[#212121]'>{timezone}</p>
+						<p className='text-base font-regular text-[#212121]'>{timezone}</p>
 					</div>
 				</div>
 				<div className='grid grid-cols-3'>
@@ -67,35 +57,18 @@ export const VoteCard = ({
 							<p>Голосование на этапе регистрации</p>
 						</YellowTag>
 					</div>
-					<div className='col-span-1 grid grid-cols-2 grid-rows-2 gap-6'>
-						<div className='col-span-1 row-span-1'>
-							<DateRow
-								title={'Начало регистрации'}
-								date={dateStartReg}
-								time={timeStartReg}
-							/>
-						</div>
-						<div className='col-span-1 row-span-1'>
-							<DateRow
-								title={'Начало голосования'}
-								date={dateStartVote}
-								time={timeStartVote}
-							/>
-						</div>
-						<div className='col-span-1 row-span-1'>
-							<DateRow
-								title={'Окончание регистрации'}
-								date={dateEndReg}
-								time={timeEndReg}
-							/>
-						</div>
-						<div className='col-span-1 row-span-1'>
-							<DateRow
-								title={'Окончание голосования'}
-								date={dateEndVote}
-								time={timeEndVote}
-							/>
-						</div>
+					<div className='col-span-1 grid grid-cols-2 grid-rows-2 gap-x-20 gap-y-5'>
+						{deadlines.map((item, index) => {
+							return (
+								<div key={index} className='col-span-1 row-span-1 order-1'>
+									<DateRow
+										title={item.title}
+										date={item.date}
+										time={item.time}
+									/>
+								</div>
+							)
+						})}
 					</div>
 					<div className='col-span-1 relative'>
 						<div className='flex gap-3 absolute bottom-0 right-0'>
@@ -122,37 +95,45 @@ export const MinInfoVoteCard = ({
 }) => {
 	return (
 		<>
-			<div className='bg-white flex flex-col gap-3 rounded-[20px] p-5 shadow-sm'>
-				<p className='text-2xl font-semibold'>{title}</p>
+			<div className='bg-white flex flex-col gap-3 rounded-[20px] p-5 border-1 border-[#f4f4f4]'>
+				<p className='text-base font-bold'>{title}</p>
 				<div className='flex justify-between'>
-					<p className='text-lg font-normal text-[#ccc]'>{description}</p>
+					<p className='text-base font-regular text-[#ccc]'>{description}</p>
 					<div className='flex items-center gap-3'>
 						<Globe />
-						<p className='text-lg font-normal text-[#212121]'>{timezone}</p>
+						<p className='text-base font-regular text-[#212121]'>{timezone}</p>
 					</div>
 				</div>
-				<div className='grid grid-cols-7 gap-7'>
+				<div className='grid grid-cols-7 gap-2'>
 					<div className='col-span-4 flex flex-col gap-2'>
-						<YellowTag wfull={true}>
+						<YellowTag wfull={true} px={'px-1'}>
 							<ScanFace />
-							<p>Голосование на этапе регистрации</p>
+							<p className='whitespace-nowrap text-base font-medium'>
+								Голосование на этапе регистрации
+							</p>
 						</YellowTag>
-						<GrayTag>
+						<GrayTag px={'px-1'}>
 							<FileArchive />
-							<p>Тайное</p>
+							<p className='whitespace-nowrap text-base font-medium'>Тайное</p>
 						</GrayTag>
 					</div>
-					<div className='col-span-3 bg-[#FFF6F6] rounded-xl px-5 py-2'>
-						<DateRow title={'Окончание регистрации'} date={date} time={time} />
+					<div className='flex items-start'>
+						<div className='col-span-3 bg-[#FFF6F6] rounded-xl px-5 py-2'>
+							<DateRow
+								title={'Окончание регистрации'}
+								date={date}
+								time={time}
+							/>
+						</div>
 					</div>
 				</div>
 				<div className='flex items-center gap-3 mt-5'>
 					<div className='w-1/3'>
 						<BlueButton>
-							<p>Зарегистрироваться</p>
+							<p className='text-base font-semibold'>Зарегистрироваться</p>
 						</BlueButton>
 					</div>
-					<p className='font-semibold text-[#EE5B5B] text-xl'>
+					<p className='font-semibold text-[#EE5B5B] text-base'>
 						Вы не зарегистрированы
 					</p>
 				</div>
@@ -173,7 +154,7 @@ export const ActualVoteCard = ({
 		<>
 			<div className='flex flex-col h-full justify-between rounded-[20px] '>
 				<div className='flex flex-col gap-3'>
-					<p className='text-2xl font-semibold'>{title}</p>
+					<p className='text-base font-bold'>{title}</p>
 					<div className='grid grid-cols-2 gap-2'>
 						<div className='col-span-1 bg-[#F6FFF9] rounded-xl px-5 py-2'>
 							<DateRow

@@ -23,7 +23,7 @@ const Authorization = () => {
 					>
 						<ToggleLangBtn />
 						<div className='flex flex-col gap-5'>
-							<p className='text-lg/5 font-medium tracking-wide text-white'>
+							<p className='text-lg/5 font-medium  text-white'>
 								Панель управления системой электронных голосований
 							</p>
 							<Button

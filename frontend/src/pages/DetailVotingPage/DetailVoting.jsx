@@ -33,8 +33,15 @@ import GeneralInfo from './chapters/GeneralInfo'
 const DetailVoting = () => {
 	const [isActive, setIsActive] = useState(0)
 	const [isRole, setIsRole] = useState('администратор')
+
+	const deadlines = [
+		{ title: 'Начало регистрации', date: '10.09.2025', time: '8:00' },
+		{ title: 'Окончание регистр.', date: '10.09.2025', time: '12:00' },
+		{ title: 'Начало голосования', date: '10.09.2025', time: '10:00' },
+		{ title: 'Окончание голосования', date: '11.09.2025', time: '00:00' },
+	]
 	return (
-		<div className='mx-60 my-[99px] text-[#212121] tracking-wide'>
+		<div className='mx-60 my-[99px] text-[#212121] '>
 			<p className='mak text-[40px] mb-5 '>Детали голосований</p>
 			<div className='grid grid-cols-4 gap-2'>
 				<div className='col-span-1'>
@@ -105,6 +112,7 @@ const DetailVoting = () => {
 										title={'Название голосования'}
 										description={'Название группы людей'}
 										TZid={15}
+										deadlines={deadlines}
 									/>
 								)
 							case 1:
