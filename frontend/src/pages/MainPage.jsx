@@ -97,12 +97,12 @@ const MainPage = () => {
 						</p>
 						<div className='flex gap-2'>
 							<div className='flex flex-col gap-2 w-5/11'>
-								<div className='bg-white rounded-[20px] px-6 py-8  h-[400px] grid grid-cols-5 gap-2'>
-									<div className='col-span-3 flex flex-col justify-between'>
-										<p className='font-bold text-xl  leading-5'>
+								<div className='bg-white rounded-[20px] px-6 py-8 max-h-100 flex gap-2'>
+									<div className='col-span-3 flex flex-col justify-between h-full'>
+										<p className='font-bold text-xl leading-5'>
 											Ваш голос — неприкосновенен.
 										</p>
-										<p className='text-base font-base  leading-5'>
+										<p className='text-base font-base leading-5'>
 											Участвуйте в голосованиях с криптографической защитой, где
 											каждый выбор остаётся в вечном блокчейне. Влияйте на
 											решения по-настоящему — без посредников, без

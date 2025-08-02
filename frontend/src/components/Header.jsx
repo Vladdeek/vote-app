@@ -152,8 +152,9 @@ const Header = ({ isAuthorized, onClick }) => {
 							</>
 						)}
 						{!isAuthorized ? <p>Авторизация</p> : <p>Фамилия И. О.</p>}
-
-						<CircleUserRound size={32} />
+						<NavLink to={'/profile'}>
+							<CircleUserRound size={32} />
+						</NavLink>
 					</div>
 				</div>
 			</div>
