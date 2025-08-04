@@ -53,7 +53,7 @@ const Voting = () => {
 		},
 	]
 	return (
-		<div className='mx-60 my-[99px] text-[#212121] '>
+		<div className='max-lg:mx-3 max-2xl:mx-30 mx-60 my-[99px] text-[#212121] '>
 			<p className='mak text-[40px] mb-5 '>Главная</p>
 			<div className='inline-flex gap-2 mb-2'>
 				<TransButton>

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import Calendar from '../components/Calendar'
 import { ActualVoteCard, MinInfoVoteCard } from '../components/VoteCard'
 import { LinkText } from '../components/Components'
+import { Chart2 } from '../components/Charts'
 
 const MainPage = () => {
 	const heights = [
@@ -22,17 +23,9 @@ const MainPage = () => {
 		'44%',
 	]
 	const colors = ['#BD3636', '#FFE3E3', '#E87C7C', '#F2A4A4']
-	const [role, setRole] = useState('голосующий')
+	const [role, setRole] = useState('админ')
 	return (
 		<>
-			<button
-				className='hover:bg-[#505050] text-white bg-[#212121] transition-all rounded-xl px-5 py-3 cursor-pointer absolute z-1000'
-				onClick={() => {
-					role === 'голосующий' ? setRole('админ') : setRole('голосующий')
-				}}
-			>
-				сменить роль
-			</button>
 			{role !== 'админ' && (
 				<>
 					<div className='relative 2xl:px-40 lg:px-10 px-1  -z-1'>
@@ -152,7 +145,13 @@ const MainPage = () => {
 												За последние 24 часа
 											</p>
 										</div>
-										<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'></div>
+										<div className='col-span-1 rounded-2xl border-1 border-[#ccc]'>
+											<Chart2
+												chartData={[0, 5, 6, 8, 7, 10]}
+												title={'Динамика регистрации'}
+												deadlines={'C 01.07.2025 по 31.07.2025'}
+											/>
+										</div>
 										<BlueButton>
 											<p className='text-base font-semibold'>
 												Завершить регистрацию
@@ -194,7 +193,13 @@ const MainPage = () => {
 												За последние 24 часа
 											</p>
 										</div>
-										<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'></div>
+										<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'>
+											<Chart2
+												chartData={[0, 5, 6, 8, 7, 10]}
+												title={'Динамика голосов'}
+												deadlines={'C 01.07.2025 по 31.07.2025'}
+											/>
+										</div>
 										<RedButton title={'Завершить голосование'} />
 									</div>
 								</div>
@@ -225,7 +230,13 @@ const MainPage = () => {
 												За последние 24 часа
 											</p>
 										</div>
-										<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'></div>
+										<div className='col-span-1 rounded-2xl border-1 border-[#ccc] h-[150px]'>
+											<Chart2
+												chartData={[0, 5, 6, 8, 7, 10]}
+												title={'Динамика регистрации'}
+												deadlines={'C 01.07.2025 по 31.07.2025'}
+											/>
+										</div>
 										<BlueButton>
 											<p>Завершить регистрацию</p>
 										</BlueButton>

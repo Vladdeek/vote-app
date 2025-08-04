@@ -116,7 +116,16 @@ const DetailVoting = () => {
 									/>
 								)
 							case 1:
-								return <VotingStatistic />
+								return (
+									<VotingStatistic
+										totalPeople={10000}
+										registeredCount={4000}
+										votedCount={1750}
+										conditionPercent={25}
+										UpdateDate={'04.08.2025'}
+										UpdateTime={'12:56'}
+									/>
+								)
 							case 2:
 								return <VotingMembers />
 							case 3:

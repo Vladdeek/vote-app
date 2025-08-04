@@ -16,7 +16,7 @@ const HeaderDropdown = ({ options = [], title }) => {
 			onClick={toggleDropdown}
 			className={`${
 				isOpen && 'bg-[#505050]'
-			} grid-cols-5 grid overflow-hidden rounded-2xl select-none`}
+			} grid-cols-5 grid overflow-hidden rounded-2xl select-none `}
 		>
 			<div className='col-span-4'>
 				<p className='p-3 cursor-pointer'>{title}</p>
@@ -61,7 +61,7 @@ const AltHeaderDropdown = ({ options = [], title }) => {
 			onClick={toggleDropdown}
 			className={`border-1 ${
 				isOpen && 'bg-white text-[#212121]'
-			} border-white grid-cols-5 grid overflow-hidden rounded-2xl select-none hover:bg-white hover:text-[#212121] transition-all w-45`}
+			} border-white grid-cols-5 grid overflow-hidden rounded-2xl select-none hover:bg-white hover:text-[#212121] transition-all w-57`}
 		>
 			<div className='col-span-4 '>
 				<p className='p-3 cursor-pointer'>{title}</p>
@@ -108,7 +108,7 @@ const Header = ({ isAuthorized, onClick }) => {
 	return (
 		<>
 			<div className='h-25 bg-[#212121]'>
-				<div className='flex justify-between py-[18px] mx-60 text-white text-md font-semibold'>
+				<div className='flex justify-between py-[18px] md:mx-3 lg:mx-20 xl:mx-40 2xl:mx-60 text-white text-md font-semibold'>
 					<div className='flex gap-5 items-start'>
 						<div className='flex items-start'>
 							<img
@@ -138,7 +138,7 @@ const Header = ({ isAuthorized, onClick }) => {
 							)}
 
 							{isAuthorized && (
-								<div className='h-full flex items-start'>
+								<div className='h-full flex items-start z-20'>
 									<AltHeaderDropdown title={'Добавить'} options={Add} />
 								</div>
 							)}
@@ -151,7 +151,11 @@ const Header = ({ isAuthorized, onClick }) => {
 								<Settings2 size={32} />
 							</>
 						)}
-						{!isAuthorized ? <p>Авторизация</p> : <p>Фамилия И. О.</p>}
+						{!isAuthorized ? (
+							<p>Авторизация</p>
+						) : (
+							<p className='whitespace-nowrap max-2xl:hidden'>Фамилия И. О.</p>
+						)}
 						<NavLink to={'/profile'}>
 							<CircleUserRound size={32} />
 						</NavLink>

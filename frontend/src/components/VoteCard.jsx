@@ -12,12 +12,13 @@ import {
 } from 'lucide-react'
 import { GrayTag, GreenTag, YellowTag } from './Tags'
 import { BlueButton, GreenButton } from './Buttons'
-import ProgressCircle from './ProgressCircle'
+import { ProgressCircle } from './ProgressCircle'
+import { NavLink } from 'react-router-dom'
 
 const DateRow = ({ date, time, title }) => {
 	return (
 		<>
-			<p className='text-base font-normal whitespace-nowrap font-normal text-[#ccc] mb-2'>
+			<p className='text-base font-normal whitespace-nowrap text-[#ccc] mb-2'>
 				{title}
 			</p>
 			<div className='flex gap-3 items-center text-xl'>
@@ -72,9 +73,12 @@ export const VoteCard = ({ title, description, timezone, deadlines }) => {
 					</div>
 					<div className='col-span-1 relative'>
 						<div className='flex gap-3 absolute bottom-0 right-0'>
-							<button className=' bg-[#f4f4f4] hover:bg-[#ccc] transition-all rounded-lg p-2 cursor-pointer'>
+							<NavLink
+								to={'/details'}
+								className=' bg-[#f4f4f4] hover:bg-[#ccc] transition-all rounded-lg p-2 cursor-pointer'
+							>
 								<ChartColumn />
-							</button>
+							</NavLink>
 							<button className=' bg-[#f4f4f4] hover:bg-[#EE5B5B] hover:text-[#FFE3E3] transition-all rounded-lg p-2 cursor-pointer'>
 								<Trash2 />
 							</button>

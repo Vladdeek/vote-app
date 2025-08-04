@@ -6,15 +6,15 @@ import {
 	ScanFace,
 } from 'lucide-react'
 import { BlueTag, GrayTag, YellowTag } from '../../../components/Tags'
-import { BlueButton } from '../../../components/Buttons'
 import { Dropdown } from '../../../components/Inputs'
 import { timeZones } from '../../../data/TimeZone'
 import { useState } from 'react'
+import { Button } from '@material-tailwind/react'
 
 const DateRow = ({ date, time, title, column }) => {
 	return (
 		<>
-			<p className='text-base font-normal whitespace-nowrap font-normal text-[#ccc] mb-2'>
+			<p className='text-base font-normal whitespace-nowrap text-[#ccc] mb-2'>
 				{title}
 			</p>
 			<div
@@ -85,9 +85,9 @@ const GeneralInfo = ({ title, description, TZid, deadlines }) => {
 								</div>
 							</div>
 						</div>
-						<BlueButton>
-							<p>Результаты</p>
-						</BlueButton>
+						<Button className='bg-[#437DE9] font-semibold text-base'>
+							Результаты
+						</Button>
 					</div>
 					<div className='grid grid-cols-2 gap-3 w-[482px]'>
 						{deadlines.map((item, index) => {

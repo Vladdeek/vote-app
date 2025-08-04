@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight, CircleCheck } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { Button } from '@material-tailwind/react'
 
 const ToggleLangBtn = () => {
 	const [isRusLang, setIsRusLang] = useState(true)
@@ -28,22 +29,11 @@ const ToggleLangBtn = () => {
 	)
 }
 
-const Button = ({ title, onClick }) => {
-	return (
-		<button
-			onClick={onClick}
-			className='border-1 w-full py-3 bg-[#212121] border-white rounded-xl text-lg font-medium text-white hover:brightness-110 transition-all cursor-pointer active:scale-98'
-		>
-			{title}
-		</button>
-	)
-}
-
 const TransButton = ({ children, onClick }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full py-3 px-4 flex gap-3 items-center whitespace-nowrap border-[#212121] rounded-lg text-lg font-normal text-[#212121]'
+			className='border-1 py-3 px-4 w-full flex gap-3 items-center whitespace-nowrap border-[#212121] bg-transparent rounded-lg text-lg font-normal text-[#212121]'
 		>
 			{children}
 		</button>
@@ -65,7 +55,7 @@ const BlueButton = ({ onClick, children }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full py-3 bg-[#437DE9] border-white rounded-xl text-lg font-normal text-white flex gap-5 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98'
+			className='w-full py-3 px-3 bg-[#437DE9] rounded-lg text-lg font-normal text-white flex gap-3 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98 whitespace-nowrap'
 		>
 			{children}
 		</button>
@@ -86,7 +76,7 @@ const GreenButton = ({ onClick, children }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full py-3 px-3 bg-[#5BC25B] border-white rounded-lg text-lg font-normal text-white flex gap-3 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98 whitespace-nowrap'
+			className=' w-full py-3 px-3 bg-[#5BC25B] rounded-lg text-lg font-normal text-white flex gap-3 justify-center items-center hover:brightness-90 transition-all cursor-pointer active:scale-98 whitespace-nowrap'
 		>
 			{children}
 		</button>
@@ -108,7 +98,7 @@ const RedButton = ({ title, onClick }) => {
 	return (
 		<button
 			onClick={onClick}
-			className='border-1 w-full py-3  text-[#EE5B5B] border-[#EE5B5B] rounded-xl text-lg font-medium hover:brightness-90 transition-all cursor-pointer active:scale-98'
+			className='w-full py-3  text-[#EE5B5B] rounded-xl text-lg font-medium hover:brightness-90 transition-all cursor-pointer active:scale-98'
 		>
 			{title}
 		</button>
